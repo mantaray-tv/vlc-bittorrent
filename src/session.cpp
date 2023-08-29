@@ -51,6 +51,12 @@ Session::Session(std::mutex& mtx)
     sp.set_int(sp.whole_pieces_threshold, 5);
     sp.set_int(sp.request_queue_time, 1);
     sp.set_int(sp.urlseed_pipeline_size, 2);
+
+    // force encryption for mantaray.tv
+    sp.set_int(sp.out_enc_policy, lt::settings_pack::pe_forced);
+    sp.set_int(sp.in_enc_policy, lt::settings_pack::pe_forced);
+    sp.set_int(sp.allowed_enc_level, lt::settings_pack::pe_rc4);
+
 #if LIBTORRENT_VERSION_NUM >= 10102
     sp.set_int(sp.urlseed_max_request_bytes, 100 * 1024);
 #endif
