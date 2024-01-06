@@ -56,10 +56,10 @@ Session::Session(std::mutex& mtx)
     sp.set_int(sp.urlseed_pipeline_size, 2);
 
     // settings for mantaray.tv
-    // sp.set_int(sp.out_enc_policy, lt::settings_pack::pe_forced);
-    // sp.set_int(sp.in_enc_policy, lt::settings_pack::pe_forced);
-    // sp.set_int(sp.allowed_enc_level, lt::settings_pack::pe_rc4);
-    // sp.set_int(sp.max_peerlist_size, 5);
+    sp.set_int(sp.out_enc_policy, lt::settings_pack::pe_forced);
+    sp.set_int(sp.in_enc_policy, lt::settings_pack::pe_forced);
+    sp.set_int(sp.allowed_enc_level, lt::settings_pack::pe_rc4);
+    sp.set_int(sp.max_peerlist_size, 5);
 
 #if LIBTORRENT_VERSION_NUM >= 10102
     sp.set_int(sp.urlseed_max_request_bytes, 100 * 1024);
